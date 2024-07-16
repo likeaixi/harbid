@@ -67,7 +67,7 @@ func mineLoop(client *minerClient, numberOfBlocks uint64, targetBlocksPerSecond 
 					if (blockIndex % windowSize) == 0 {
 						tickerStart := time.Now()
 						<-windowTicker.C
-						log.Infof("Finished mining %d blocks in: %s. slept for: %s", windowSize, time.Since(windowStart), time.Since(tickerStart))
+						log.Infof("Worker %d finished mining %d blocks in: %s. slept for: %s", i, windowSize, time.Since(windowStart), time.Since(tickerStart))
 						windowStart = time.Now()
 					}
 				}
